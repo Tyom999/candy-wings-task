@@ -1,0 +1,28 @@
+<div class="chat"
+     #scrollMe infinite-scroll
+     [scrollWindow]="false"
+     (scrolledUp)="getMessages(this.page + 1)">
+  <div class="chat-history">
+    <ul class="m-b-0" *ngIf="allMessages.length; else noMessage">
+      <li class="clearfix" *ngFor="let item of allMessages">
+        <div class="message-data text-right">
+          <span class="message-data-time"  [ngStyle]="{'margin-left': user.id === item.userId || user.id === item.user1Id ? '70%': '0'}">
+            {{item.user?.name ? item.user?.name : item.userName}} - {{item.createdAt | date: 'short'}}</span>
+        </div>
+        <div class="message" [ngClass]="user.id === item.userId || user.id === item.user1Id ? 'other-message float-right' : 'my-message'">{{item.text}}</div>
+      </li>
+    </ul>
+
+    <ng-template #noMessage>
+      <h1> You dont have a message</h1>
+    </ng-template>
+  </div>
+  <div class="chat-message clearfix">
+    <div class="input-group mb-0">
+      <input type="text" class="form-control" [(ngModel)]="message" (keydown.enter)="send()" placeholder="Enter text here...">
+      <button class="input-group-prepend send-btn" [disabled]="!message.length" (click)="send()">
+        <span class="input-group-text send-span"><i class="fa fa-send"></i></span>
+      </button>
+    </div>
+  </div>
+</div>

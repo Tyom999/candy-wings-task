@@ -1,0 +1,18 @@
+# IntelliJ project files
+.idea
+*.iml
+out
+gen### Node template
+
+# Optional npm cache directory
+.npm
+
+.env
+yarn-error.log*
+# Dependency directories
+node_modules/
+
+# Optional eslint cache
+.eslintcache
+
+.angular

@@ -1,0 +1,25 @@
+.login-container{
+  max-width: 400px;
+  margin: 60px auto 0;
+}
+
+.error{
+  color: tomato;
+  font-size: 12px;
+  padding-top: 4px
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.createAcc {
+  font-size: 15px;
+  border: none;
+  outline: none;
+  &:hover {
+    cursor: pointer;
+    color: blue;
+    text-decoration-line: underline;
+  }
+}
